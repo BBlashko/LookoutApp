@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/settings_relative"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/sett_lin_layout_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/sett_rl_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/set_tv_dev_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/set_tv_status"
+                        android:layout_alignBottom="@+id/set_tv_status"
+                        android:layout_toEndOf="@+id/set_tv_status"
+                        android:layout_toRightOf="@+id/set_tv_status"
+                        android:layout_weight="1"
+                        android:paddingLeft="10dp"
+                        android:text="null" />
+
+                    <TextView
+                        android:id="@+id/set_tv_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="12dp"
+                        android:layout_weight="1"
+                        android:text="Connected To:" />
+
+                    <RelativeLayout
+                        android:id="@+id/sett_rl_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/set_tv_status_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/sett_tv_status"
+                            android:layout_alignBottom="@+id/sett_tv_status"
+                            android:layout_toEndOf="@+id/sett_tv_status"
+                            android:layout_toRightOf="@+id/sett_tv_status"
+                            android:layout_weight="1"
+                            android:paddingLeft="10dp"
+                            android:text="Connected"
+                            android:textColor="@android:color/holo_green_dark" />
+
+                        <TextView
+                            android:id="@+id/sett_tv_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="12dp"
+                            android:layout_weight="1"
+                            android:text="Status:" />
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/spacer"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/sett_toggle_on_off"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/sett_tv_toggle_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:text="Toggle Lookout Monitoring"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/sett_tv_on_off"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Enable/Disable:"
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:layout_alignBaseline="@+id/toggleButton"
+                        android:layout_alignBottom="@+id/toggleButton"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton"
+                        android:layout_width="70dp"
+                        android:layout_height="40dp"
+                        android:text="ToggleButton"
+                        android:layout_marginLeft="19dp"
+                        android:layout_marginStart="19dp"
+                        android:layout_below="@+id/sett_tv_toggle_title"
+                        android:layout_toRightOf="@+id/sett_tv_on_off"
+                        android:layout_toEndOf="@+id/sett_tv_on_off" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/sett_rl_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1">
+
+                    <include
+                        android:id="@+id/sett_contact_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        layout="@layout/contact_header"
+                        android:visibility="visible" />
+
+                    <ListView
+                        android:id="@+id/sett_contact_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_below="@id/sett_contact_header"
+                        android:dividerHeight="0dp"
+                        android:divider="@null" />
+
+                    <TextView
+                        android:id="@+id/empty"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_below="@id/sett_contact_header"
+                        android:layout_marginTop="10dp"
+                        android:text='There are no phone numbers associated with this Lookout Device. \n \nPress the "add" button to assign a phone number.\n\n'
+                        android:textColor="@color/grey"
+                        android:textSize="16sp"
+                        android:textStyle="italic"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/sett_op_hours"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+
+                    <TextView
+                        android:id="@+id/sett_tv_operation_hours"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:text="Operation Hours"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/sett_tv_operation_hours_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_below="@+id/sett_tv_operation_hours"
+                        android:text="Select the time that the lookout will start and end monitoring for inactivity:" />
+
+                    <LinearLayout
+                        android:id="@+id/sett_day_operation_rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/sett_tv_operation_hours_desc"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp">
+
+                        <ImageView
+                            android:id="@+id/sett_day_symbol"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="14dp"
+                            android:scaleType="fitCenter"
+                            app:srcCompat="@drawable/day_symbol"
+                            android:layout_marginStart="14dp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+
+                        <RelativeLayout
+                            android:id="@+id/sett_start_time_rl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/sett_tv_start_time_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginStart="16dp"
+                                android:text="Start Time:" />
+
+                            <TextView
+                                android:id="@+id/sett_tv_start_time"
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/sett_tv_start_time_label"
+                                android:layout_alignStart="@+id/sett_tv_start_time_label"
+                                android:layout_below="@+id/sett_tv_start_time_label"
+                                android:text="7:00 am"
+                                android:textColor="#000000"
+                                android:textSize="20sp" />
+                        </RelativeLayout>
+
+
+                        <Button
+                            android:id="@+id/sett_btn_edit_start_time"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="60dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="41dp"
+                            android:layout_marginStart="41dp"
+                            android:layout_toEndOf="@+id/sett_tv_end_time"
+                            android:layout_toRightOf="@+id/sett_tv_end_time"
+                            android:background="@drawable/edit_button"
+                            android:shadowColor="#A8A8A8"
+                            android:shadowDx="0"
+                            android:shadowDy="0"
+                            android:shadowRadius="5"
+                            android:text="Edit"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/sett_night_operation_rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/sett_day_operation_rl"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp">
+
+                        <ImageView
+                            android:id="@+id/sett_night_symbol"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="14dp"
+                            android:scaleType="fitCenter"
+                            app:srcCompat="@drawable/night_symbol"
+                            android:layout_marginStart="14dp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+
+                        <RelativeLayout
+                            android:id="@+id/sett_end_time_rl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/sett_tv_end_time_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginStart="16dp"
+                                android:text="End Time:" />
+
+                            <TextView
+                                android:id="@+id/sett_tv_end_time"
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/sett_tv_end_time_label"
+                                android:layout_alignStart="@+id/sett_tv_end_time_label"
+                                android:layout_below="@+id/sett_tv_end_time_label"
+                                android:text="10:00 pm"
+                                android:textColor="#000000"
+                                android:textSize="20sp" />
+                        </RelativeLayout>
+
+
+                        <Button
+                            android:id="@+id/sett_btn_edit_end_time"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="60dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="41dp"
+                            android:layout_marginStart="41dp"
+                            android:layout_toEndOf="@+id/sett_tv_end_time"
+                            android:layout_toRightOf="@+id/sett_tv_end_time"
+                            android:background="@drawable/edit_button"
+                            android:shadowColor="#A8A8A8"
+                            android:shadowDx="0"
+                            android:shadowDy="0"
+                            android:shadowRadius="5"
+                            android:text="Edit"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp" />
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/sett_rl_inact_time_out"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/sett_tv_timout_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:text="Inactivity Time Out"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/sett_tv_timeout_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_below="@+id/sett_tv_timout_title"
+                        android:text="Select the duration of inactivity before a text message is sent:" />
+
+                    <Spinner
+                        android:id="@+id/sett_tv_timeout_hours"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:entries="@array/hour_array"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/sett_tv_timeout_desc"/>
+                    <Spinner
+                        android:id="@+id/sett_tv_timeout_mins"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toRightOf="@+id/sett_tv_timeout_hours"
+                        android:layout_toEndOf="@+id/sett_tv_timeout_hours"
+                        android:entries="@array/minute_array"/>
+                    <Spinner
+                        android:id="@+id/sett_tv_timeout_seconds"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toRightOf="@+id/sett_tv_timeout_mins"
+                        android:layout_toEndOf="@+id/sett_tv_timeout_mins"
+                        android:entries="@array/second_array"/>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

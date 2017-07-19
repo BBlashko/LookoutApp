@@ -5,4 +5,9 @@
     <color name="colorAccent">#ff4081</color>
     <color name="transparent">#aaffffff</color>
     <color name="black">#000000</color>
+    <color name="blue">#3D348B</color>
+    <color name="yellow">#E6AF2E</color>
+    <color name="spacer">#dd504630</color>
+    <color name="grey">#7c7c7c</color>
+
 </resources>
