@@ -260,11 +260,16 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mInitComplete) {
-                    mLookoutConfig.setInactivityTimeOut(Integer.parseInt(mTimeoutHoursSpinner.getSelectedItem().toString().split(" ")[0]),
-                            Integer.parseInt(mTimeoutMinutesSpinner.getSelectedItem().toString().split(" ")[0]),
-                            mTimeoutDemoToggleBtn.isChecked(), true);
-                    mTimeoutHoursSpinner.setSelection(0);
-                    mTimeoutMinutesSpinner.setSelection(0);
+                    if (mTimeoutDemoToggleBtn.isChecked()) {
+                        mLookoutConfig.setInactivityTimeOut(0, 0, true, true);
+                        mTimeoutHoursSpinner.setSelection(0);
+                        mTimeoutMinutesSpinner.setSelection(0);
+                    } else {
+                        mLookoutConfig.setInactivityTimeOut(4, 0, false, true);
+                        mTimeoutHoursSpinner.setSelection(4);
+                        mTimeoutMinutesSpinner.setSelection(0);
+                    }
+
 
                 }
             }
