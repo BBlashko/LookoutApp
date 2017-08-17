@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Config
     private static final String TAG = "[MainActivity]";
+    //private static final String DEVICE_NAME = "thelookout-desktop"; //name of lookout device
     private static final String DEVICE_NAME = "Coyote"; //name of lookout device
     private static final int REQUEST_ENABLE_BT = 1;
 
@@ -62,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         Log.d(TAG, "onDestroy Called");
         unregisterReceiver(mReceiver);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onDestroy Called");
+        if (curr_state == BT_READY_FOR_CONNECTION) {
+            curr_state = BT_DETECTING;
+            mLookoutDevice = null;
+        }
     }
 
     private void init() {
@@ -214,6 +225,8 @@ public class MainActivity extends AppCompatActivity {
                                 if (!mIsDiscovery && mLookoutDevice == null) {
                                     Log.d(TAG, "Discovering devices...");
                                     discoverDevices();
+                                    IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+                                    registerReceiver(mReceiver, filter);
                                 } else if (mIsDiscovery && !mBluetoothAdapter.isDiscovering()) {
                                     Log.d(TAG, "Failed to discover Lookout Device, restarting scan...");
                                     discoverDevices();
@@ -250,6 +263,8 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 Looper.loop();
+
+
             }
         };
 
@@ -264,9 +279,6 @@ public class MainActivity extends AppCompatActivity {
         //Depending on android version a check is needed
         checkBluetoothPermissions();
         mBluetoothAdapter.startDiscovery();
-        sendToast("Discovering Lookout Device");
-        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        registerReceiver(mReceiver, filter);
         mIsDiscovery = true;
     }
 
@@ -289,17 +301,20 @@ public class MainActivity extends AppCompatActivity {
                 // Discovery has found a device. Get the BluetoothDevice
                 // object and its info from the Intent.
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                if (device == null) {
+                    return;
+                }
                 String name = device.getName();
-                if (device.getName().equalsIgnoreCase(DEVICE_NAME)) {
+                if (name != null && device.getName().equalsIgnoreCase(DEVICE_NAME)) {
                     mLookoutDevice = device;
                     Log.d(TAG, "Found Lookout Device: " + device.getName() + " " + device.getAddress());
                 }
                 mBluetoothAdapter.cancelDiscovery();
-                mIsDiscovery = false;
             }
         }
     };
 
+    //used to communicate between threads.
     private void sendHandlerMessage(int arg1) {
         Message message = mHandler.obtainMessage();
         message.arg1 = arg1;
