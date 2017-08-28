@@ -24,8 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Config
     private static final String TAG = "[MainActivity]";
-    //private static final String DEVICE_NAME = "thelookout-desktop"; //name of lookout device
-    private static final String DEVICE_NAME = "Coyote"; //name of lookout device
+    private static final String DEVICE_NAME = "thelookout-desktop"; //name of lookout device
     private static final int REQUEST_ENABLE_BT = 1;
 
     //Variables

@@ -318,7 +318,7 @@ public class SettingsActivity extends AppCompatActivity {
             String[] inactivityTimeout = jsonObject.getString("inactivityTimeout").split(":");
             mTimeoutHoursSpinner.setSelection(Integer.parseInt(inactivityTimeout[0]));
             mTimeoutMinutesSpinner.setSelection(Integer.parseInt(inactivityTimeout[1]));
-            if (Integer.parseInt(inactivityTimeout[2]) == 15) {
+            if (Integer.parseInt(inactivityTimeout[2]) == 10) {
                 mTimeoutDemoToggleBtn.setChecked(true);
             } else {
                 mTimeoutDemoToggleBtn.setChecked(false);
